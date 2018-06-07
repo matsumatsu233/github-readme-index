@@ -1,5 +1,18 @@
-console.log('This extension works!');
+console.log("This extension works!");
 
+function getTitleTree(readme) {
+  let article = readme.childNodes[1];
+  let childs = Array.from(article.childNodes);
+  let result = childs.filter(
+    node => node.localName && node.localName.match(/h(1|2|3|4|5)/)
+  ).map(
+    node => `<li class='level_${node.localName}'><a href='${node.firstChild.hash}'>${node.textContent}</a></li>`
+  )
+
+  return result;
+}
+
+// styles
 let newStyle = document.createElement("style"); 
 newStyle.innerHTML = `
   .navi {
@@ -7,6 +20,11 @@ newStyle.innerHTML = `
     position: fixed;
     top: 300px;
     left: 101px;
+  }
+
+  .navi-content {
+    max-height: 450px;
+    overflow: auto;
   }
 
   .navi-content .level_h1 {
@@ -18,36 +36,25 @@ newStyle.innerHTML = `
     list-style-type: circle;
   }
 
-  /* skip h3 because I don't use h3 */
-  .navi-content .level_h4 {
+  .navi-content .level_h3 {
     margin-left: 40px;
   }
 
-  .navi-content .level_h5 {
+  .navi-content .level_h4 {
     margin-left: 55px;
     list-style-type: circle;
+  }
+
+  .navi-content .level_h5 {
+    margin-left: 60px;
   }
 `;
 document.querySelector('head').appendChild(newStyle)
 
-let readme = document.querySelector('#readme');
-
-function getTitleTree(readme) {
-  let article = readme.childNodes[1];
-  let childs = Array.from(article.childNodes);
-  let result = childs.filter(
-    node => node.localName && node.localName.match(/h(1|2|3|4|5)/)
-  ).map(
-    node => `<li class='level_${node.localName}'><a href='${node.firstChild.hash}'>${node.textContent}</a></li>`
-  )
-
-  console.log(result);
-  return result;
-}
-
+// main
+const readme = document.querySelector('#readme');
 const lists = getTitleTree(readme);
-
-let newDiv = document.createElement("div"); 
+const newDiv = document.createElement("div"); 
 newDiv.innerHTML = `
 <div class="navi Box Box--condensed mb-3 js-repos-container" data-pjax-container role="navigation">
   <div class="Box-header">
@@ -62,5 +69,4 @@ newDiv.innerHTML = `
   </div>
 </div>
 `;
-
 readme.appendChild(newDiv);
