@@ -1,7 +1,7 @@
 console.log("This extension works!");
 
 function getTitleTree(readme) {
-  let article = readme.childNodes[1];
+  let article = readme.querySelectorAll('article')[0];
   let childs = Array.from(article.childNodes);
   let result = childs.filter(
     node => node.localName && node.localName.match(/h(1|2|3|4|5)/)
