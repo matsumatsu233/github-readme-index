@@ -21,6 +21,7 @@ function start() {
       position: fixed;
       top: 300px;
       left: 101px;
+      z-index: 1000;
     }
 
     .navi-content {
@@ -54,6 +55,7 @@ function start() {
 
   // main
   const readme = document.querySelector('#readme');
+  if (!readme) return;
   const lists = getTitleTree(readme);
   const newDiv = document.createElement("div"); 
   newDiv.innerHTML = `
