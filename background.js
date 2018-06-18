@@ -6,6 +6,6 @@
 
 chrome.runtime.onInstalled.addListener(function() {
   chrome.webNavigation.onHistoryStateUpdated.addListener(function(details) {
-    chrome.tabs.executeScript(null, { file: "src/index.js" });
+    chrome.tabs.executeScript(null, { file: "dist/bundle.js" });
   });
 });
