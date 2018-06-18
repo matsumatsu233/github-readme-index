@@ -27,7 +27,7 @@
     {
       "matches": ["https://github.com/*"],
       "css": [],
-      "js": ["src/index.js"]
+      "js": ["dist/bundle.js"]
     }
   ],
   "icons": {
