@@ -69,18 +69,11 @@ class Navi extends React.Component {
   };
 
   render() {
-    const readmeContainerX = document
-      .querySelector(".file")
-      .getBoundingClientRect().x;
-    const readmeContainerY = document
-      .querySelector(".file")
-      .getBoundingClientRect().y;
+    const readmeContainer =
+      document.querySelector(".file") || document.querySelector("#readme");
+    const readmeContainerX = readmeContainer.getBoundingClientRect().x;
+    const readmeContainerY = readmeContainer.getBoundingClientRect().y;
     const boundary = readmeContainerY + this.state.scrollY;
-
-    const specialStyle =
-      this.state.scrollY < boundary - 30
-        ? styles.naviAbsolute
-        : styles.naviFixed;
 
     return (
       <div

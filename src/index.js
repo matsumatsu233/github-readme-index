@@ -5,7 +5,6 @@ import Navi from "./navi";
 
 function getTitleTree(readme) {
   let article = readme.querySelectorAll("article")[0];
-  console.log("article", article);
   let childs = Array.from(article.childNodes);
   let result = childs
     .filter(node => node.localName && node.localName.match(/h(1|2|3|4|5)/))
@@ -19,8 +18,6 @@ function getTitleTree(readme) {
 }
 
 function start() {
-  console.log("This extension started!");
-
   if (ReactDOM) {
     const readme = document.querySelector("#readme");
     if (!readme) return;
