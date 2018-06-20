@@ -2,7 +2,7 @@ import React from "react";
 import Radium from "radium";
 
 const styles = {
-  naviContent: {
+  indexContent: {
     maxHeight: 450,
     overflow: "auto"
   },
@@ -25,7 +25,7 @@ const styles = {
   }
 };
 
-const naviContainerStyles = ({ isFixed, readmeContainerX }) => {
+const indexContainerStyles = ({ isFixed, readmeContainerX }) => {
   if (isFixed) {
     return {
       width: 350,
@@ -45,7 +45,7 @@ const naviContainerStyles = ({ isFixed, readmeContainerX }) => {
   }
 };
 
-class Navi extends React.Component {
+class Index extends React.Component {
   constructor(props) {
     super(props);
 
@@ -78,7 +78,7 @@ class Navi extends React.Component {
     return (
       <div
         className="Box Box--condensed mb-3 js-repos-container"
-        style={naviContainerStyles({
+        style={indexContainerStyles({
           isFixed: this.state.scrollY > boundary - 30,
           readmeContainerX
         })}
@@ -87,10 +87,10 @@ class Navi extends React.Component {
       >
         <div className="Box-header">
           <h3 className="Box-title d-flex flex-justify-between flex-items-center">
-            Navigation
+            Index
           </h3>
         </div>
-        <div className="Box-body" style={styles.naviContent}>
+        <div className="Box-body" style={styles.indexContent}>
           <ul>
             {this.props.items.map(item => (
               <li style={styles[`level_${item.level}`]}>
@@ -104,4 +104,4 @@ class Navi extends React.Component {
   }
 }
 
-export default Radium(Navi);
+export default Radium(Index);

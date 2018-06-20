@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-import Navi from "./navi";
+import Index from "./indexComponent";
 
 function getTitleTree(readme) {
   let article = readme.querySelectorAll("article")[0];
@@ -24,13 +24,13 @@ function start() {
 
     const items = getTitleTree(readme);
 
-    const naviDiv = document.createElement("div");
-    naviDiv.setAttribute("id", "navi");
-    readme.appendChild(naviDiv);
+    const indexDiv = document.createElement("div");
+    indexDiv.setAttribute("id", "indexDiv");
+    readme.appendChild(indexDiv);
 
     ReactDOM.render(
-      <Navi items={items} />,
-      document.querySelector("#readme > #navi")
+      <Index items={items} />,
+      document.querySelector("#readme > #indexDiv")
     );
   }
 }

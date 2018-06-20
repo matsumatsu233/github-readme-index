@@ -1,22 +1,21 @@
 {
-  "name": "github-readme-navi",
+  "name": "github-readme-index",
   "version": "1.0.0",
   "description": "",
   "main": "background.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "build": "./node_modules/.bin/webpack --watch"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/matsumatsu233/github-readme-navi.git"
+    "url": "git+https://github.com/matsumatsu233/github-readme-index.git"
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/matsumatsu233/github-readme-navi/issues"
+    "url": "https://github.com/matsumatsu233/github-readme-index/issues"
   },
-  "homepage": "https://github.com/matsumatsu233/github-readme-navi#readme",
+  "homepage": "https://github.com/matsumatsu233/github-readme-index#readme",
   "devDependencies": {
     "@babel/core": "^7.0.0-beta.51",
     "@babel/plugin-transform-react-jsx": "^7.0.0-beta.51",
