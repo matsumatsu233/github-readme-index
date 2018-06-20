@@ -26,22 +26,28 @@ const styles = {
 };
 
 const indexContainerStyles = ({ isFixed, readmeContainerX }) => {
+  const basicStyle = {
+    transform: "translateX(-100%) translateX(-20px)",
+    minWidth: 200,
+    maxWidth: 350,
+    zIndex: 1000
+  };
   if (isFixed) {
-    return {
-      width: 350,
-      position: "fixed",
-      top: 30,
-      left: readmeContainerX - 370 + 1,
-      zIndex: 1000
-    };
+    return Object.assign(
+      {
+        position: "fixed",
+        top: 30
+      },
+      basicStyle
+    );
   } else {
-    return {
-      width: 350,
-      position: "absolute",
-      top: 0,
-      left: -370,
-      zIndex: 1000
-    };
+    return Object.assign(
+      {
+        position: "absolute",
+        top: 0
+      },
+      basicStyle
+    );
   }
 };
 
