@@ -22,6 +22,7 @@ function start() {
     const readme = document.querySelector("#readme");
     if (!readme) return;
 
+    readme.setAttribute("style", "position: relative");
     const items = getTitleTree(readme);
 
     const indexDiv = document.createElement("div");
