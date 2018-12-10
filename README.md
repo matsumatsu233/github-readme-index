@@ -13,6 +13,7 @@ git clone https://github.com/matsumatsu233/github-readme-index.git
 
 2. Build
 ```
+cd github-readme-index
 npm install
 npm run build
 ```
