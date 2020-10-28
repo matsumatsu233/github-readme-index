@@ -22,6 +22,11 @@ const styles = {
   },
   level_h5: {
     marginLeft: 70
+  },
+  paddingRemover: {
+    position: "absolute",
+    top: 0,
+    left: 0
   }
 };
 
@@ -43,7 +48,6 @@ const indexContainerStyles = ({ isFixed, readmeContainerX }) => {
   } else {
     return Object.assign(
       {
-        position: "absolute",
         top: 0
       },
       basicStyle
@@ -82,28 +86,30 @@ class Index extends React.Component {
     const boundary = readmeContainerY + this.state.scrollY;
 
     return (
-      <div
-        className="Box Box--condensed mb-3 js-repos-container"
-        style={indexContainerStyles({
-          isFixed: this.state.scrollY > boundary - 30,
-          readmeContainerX
-        })}
-        data-pjax-container
-        role="navigation"
-      >
-        <div className="Box-header">
-          <h3 className="Box-title d-flex flex-justify-between flex-items-center">
-            Index
+      <div style={styles.paddingRemover}>
+        <div
+          className="Box Box--condensed mb-3 js-repos-container"
+          style={indexContainerStyles({
+            isFixed: this.state.scrollY > boundary - 30,
+            readmeContainerX
+          })}
+          data-pjax-container
+          role="navigation"
+        >
+          <div className="Box-header">
+            <h3 className="Box-title d-flex flex-justify-between flex-items-center">
+              Index
           </h3>
-        </div>
-        <div className="Box-body" style={styles.indexContent}>
-          <ul>
-            {this.props.items.map(item => (
-              <li style={styles[`level_${item.level}`]}>
-                <a href={item.hash}>{item.text}</a>
-              </li>
-            ))}
-          </ul>
+          </div>
+          <div className="Box-body" style={styles.indexContent}>
+            <ul>
+              {this.props.items.map(item => (
+                <li style={styles[`level_${item.level}`]}>
+                  <a href={item.hash}>{item.text}</a>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </div>
     );
